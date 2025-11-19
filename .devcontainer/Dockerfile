@@ -11,6 +11,8 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get update && \
     apt-get -y clean && \
     rm -rf /var/lib/apt/lists/*
 
+RUN usermod -a -G dialout vscode
+
 USER vscode
 WORKDIR /home/vscode
 
