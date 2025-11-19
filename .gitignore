@@ -1,0 +1,9 @@
+# ----------------------------
+# devcontainer-only repository
+# ----------------------------
+*
+!/.devcontainer/
+!/.devcontainer/**
+!.gitignore
+!LICENSE
+!README.md
