@@ -1,8 +1,8 @@
 {
     "name": "Arduino CLI DevContainer",
 
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace/${localWorkspaceFolderBasename},type=bind",
-    "workspaceFolder": "/workspace/${localWorkspaceFolderBasename}",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+    "workspaceFolder": "/workspace",
 
     "build": {
         "dockerfile": "Dockerfile",
@@ -21,6 +21,12 @@
 
 
     "postStartCommand": "/home/vscode/.config/init_arduino-cli.sh",
+
+    "runArgs": [
+        "--privileged",
+        "-v",
+        "/dev/bus/usb:/dev/bus/usb"
+    ],
 
     "customizations": {
         "vscode": {
