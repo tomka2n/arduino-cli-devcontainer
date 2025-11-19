@@ -18,8 +18,8 @@ ARG ARDUINO_CLI_VERSION="1.3.1"
 ENV SHELL="/bin/zsh"
 ENV PATH="/home/vscode/bin:${PATH}"
 
-RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh \
-    | sh -s ${ARDUINO_CLI_VERSION}
+RUN curl -fsSL https://raw.githubusercontent.com/arduino/arduino-cli/master/install.sh -o /tmp/install.sh
+RUN sh /tmp/install.sh ${ARDUINO_CLI_VERSION}
 
 RUN mkdir -p /home/vscode/.arduino15
 COPY --chmod=755 --chown=vscode:vscode /scripts/init_arduino-cli.sh /home/vscode/.config/init_arduino-cli.sh
